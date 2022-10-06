@@ -16,7 +16,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,ts,astro,md,json,html}": [
+    "src/**/*.{ts,md,json}": [
       "eslint",
       "prettier:check"
     ]
