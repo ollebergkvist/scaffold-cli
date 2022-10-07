@@ -1,34 +1,28 @@
 {
   "compilerOptions": {
-    // ECMA script version
-    // Enable top-level await, and other modern ESM features.
-    "target": "ESNext",
-    // Specify what module code is generated.
-    "module": "CommonJS",
-    // Enable node-style module resolution, for things like npm package imports.
-    "moduleResolution": "node",
-    // Specify an output folder for all emitted files.
-    "outDir": "build",
-    // Specify the root folder within your source files.
+    "lib": ["ES2022", "DOM"],
+    "module": "ES2022",
+    "moduleResolution": "Node",
+    "target": "ES2022",
+    "esModuleInterop": true,
     "rootDir": "src",
-    // Enable JSON imports.
+    "outDir": "dist/",
     "resolveJsonModule": true,
-    // Enable stricter transpilation for better output.
+    "removeComments": true,
+    "allowJs": true,
+    "skipLibCheck": true,
     "isolatedModules": true,
-    // Astro will directly run your TypeScript code, no transpilation needed.
     "noEmit": true,
-    // Enable strict type checking.
     "strict": true,
-    // Error when a value import is only used as a type.
+    "incremental": true,
+    "strictNullChecks": true,
     "importsNotUsedAsValues": "error",
-    // When set to true, allowSyntheticDefaultImports allows you to write an import like:
-    // import React from "react" instead of: import * as React from "react"
-    "allowSyntheticDefaultImports": true,
-    // Will issue an error whenever it would have inferred any
-    "noImplicitAny": true,
-    // The preserve mode will keep the JSX as part of the output to be further consumed by another transform step (e.g. Babel)
-    "jsx": "preserve",
-    // Lets you set a base directory to resolve non-absolute module names.
-    "baseUrl": "./src"
+    "noImplicitAny": true
+  },
+  "include": ["src/**/*.ts", "types.d.ts"],
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
   }
 }
