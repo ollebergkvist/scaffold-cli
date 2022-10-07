@@ -1,12 +1,12 @@
 {
   "name": "scaffold-cli",
-  "preferGlobal": true,
-  "bin": {
-    "scaffold": "./bin/index.js"
-  },
+  "author": "Olle Bergkvist",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "bin": {
+    "scaffold": "./src/bin/index.js"
+  },
   "scripts": {
     "prepare": "husky install"
   },
@@ -16,7 +16,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{ts,md,json}": [
+    "src/**/*.{ts,json}": [
       "eslint",
       "prettier:check"
     ]
@@ -24,11 +24,13 @@
   "dependencies": {
     "colors": "^1.4.0",
     "commander": "^9.4.1",
+    "figlet": "^1.5.2",
     "inquirer": "^9.1.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "chalk": "^5.1.0",
     "eslint": "^8.24.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
