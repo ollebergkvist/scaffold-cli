@@ -7,11 +7,6 @@ module.exports = {
       typescript: { project: ['./tsconfig.json'] },
     },
   },
-  // env: {
-  //   node: true,
-  //   es2022: true,
-  //   browser: true,
-  // },
 
   overrides: [
     {
@@ -28,37 +23,10 @@ module.exports = {
       extends: [
         'airbnb-base',
         'airbnb-typescript/base',
-
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'plugin:@typescript-eslint/strict',
-
-        'prettier',
+        'plugin:prettier/recommended',
       ],
-
-      rules: {
-        '@typescript-eslint/no-unused-vars': [
-          'error',
-          { argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' },
-        ],
-        '@typescript-eslint/no-non-null-assertion': 'off',
-
-        'max-lines': ['warn', { max: 150, skipComments: true, skipBlankLines: true }],
-
-        'react/jsx-filename-extension': 'off',
-
-        'import/prefer-default-export': 'off',
-        // 'import/extensions': [
-        //   'error',
-        //   'ignorePackages',
-        //   {
-        //     js: 'never',
-        //     jsx: 'never',
-        //     ts: 'never',
-        //     tsx: 'never',
-        //   },
-        // ],
-      },
     },
   ],
 }
