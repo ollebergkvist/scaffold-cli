@@ -4,7 +4,7 @@
 import chalk from 'chalk'
 import util from 'util'
 import child_process from 'child_process'
-import { recursiveCopy } from '../helpers/copy'
+import { recursiveCopy } from '../helpers/copy.js'
 
 const exec = util.promisify(child_process.exec)
 
@@ -38,6 +38,7 @@ const dependencies = [
   'prettier',
   'prettier-plugin-astro',
   'rimraf',
+  'tailwindcss',
   'typescript',
 ]
 
@@ -52,16 +53,16 @@ export const astro = async () => {
     )
 
     console.info(chalk.magenta('- Copying shared configs'))
-    await recursiveCopy('configs/shared', '.')
+    await recursiveCopy('../configs/shared', '.')
 
     console.info(chalk.magenta('- Copying astro typescript config'))
-    await recursiveCopy('configs/typescript/astro', '.')
+    await recursiveCopy('../configs/typescript/astro', '.')
 
     console.info(chalk.magenta('- Copying astro eslint main config'))
-    await recursiveCopy('configs/eslint/astro', '.')
+    await recursiveCopy('../configs/eslint/astro', '.')
 
     console.info(chalk.magenta('- Copying astro eslint children configs \n'))
-    await recursiveCopy('configs/eslint/plugins', './configs')
+    await recursiveCopy('../configs/eslint/plugins', './configs')
 
     console.info(chalk.green('Successfully installed and configured default tools! \n'))
   } catch (error) {

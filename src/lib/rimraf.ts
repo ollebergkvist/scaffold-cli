@@ -11,7 +11,7 @@ export const rimraf = async () => {
   console.info(chalk.magenta(`Configuring rimraf... \n`))
 
   try {
-    console.info(chalk.magenta(`Initializing rimraf \n`))
+    console.info(chalk.magenta(`- Installing rimraf \n`))
 
     await exec('yarn add -D rimraf')
 

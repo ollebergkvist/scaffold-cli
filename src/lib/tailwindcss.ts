@@ -7,15 +7,19 @@ import child_process from 'child_process'
 
 const exec = util.promisify(child_process.exec)
 
+const dependencies = [
+  '@tailwindcss/aspect-ratio',
+  '@tailwindcss/typography',
+  'daisyui',
+  'tailwindcss',
+]
+
 export const tailwindcss = async () => {
   console.info(chalk.magenta(`Configuring tailwindcss... \n`))
 
   try {
-    console.info(chalk.magenta(`Installing tailwindcss \n`))
-
-    await exec(
-      'yarn add -D tailwindcss @tailwindcss/typography @tailwindcss/aspect-ratio && npx tailwindcss init',
-    )
+    console.info(chalk.magenta(`- Installing tailwindcss \n`))
+    await exec(`yarn add -D ${dependencies.join(' ')} && npx tailwindcss init`)
 
     console.info(chalk.green(`Successfully installed and configured tailwindcss! \n`))
   } catch (error) {

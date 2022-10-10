@@ -10,8 +10,8 @@ const exec = util.promisify(child_process.exec)
 export const husky = async () => {
   console.info(chalk.magenta('Configuring husky...'))
   try {
-    console.info(chalk.magenta('Initializing husky'))
-    await exec('npx husky-init && yarn')
+    console.info(chalk.magenta('- Initializing husky'))
+    await exec('git init && npx husky-init && yarn')
 
     console.info(chalk.green('Successfully installed and configured husky!'))
   } catch (error) {
