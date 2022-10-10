@@ -1,8 +1,8 @@
 {
-  "name": "@ollebergkvist/scaffolder",
+  "name": "@ollebergkvist/testtest",
   "description": "A CLI to scaffold common tools and configs",
   "author": "Olle Bergkvist",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "main": "dist/bin/index.js",
   "license": "MIT",
   "type": "module",
@@ -16,7 +16,9 @@
     "format": "eslint --write \"src/**/*.ts\"",
     "ts-node": "ts-node-esm",
     "prettier:check": "yarn prettier --check .",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "prepublish": "yarn build",
+    "publish": "npm publish --access=public"
   },
   "husky": {
     "hooks": {
@@ -44,6 +46,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsonc": "^2.4.0",
     "eslint-plugin-prettier": "^4.2.1",
