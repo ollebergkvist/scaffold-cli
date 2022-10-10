@@ -1,0 +1,15 @@
+node_modules/
+.husky
+.vscode
+.eslintignore
+.eslintrc.cjs
+.lintstagedrc.cjs
+.prettierrc.cjs
+commitlint.config.cjs
+eslint-json.cjs
+eslint-ts.cjs
+nodemon.json
+tsconfig.json
+tsconfig.tsbuildinfo
+types.d.ts
+src
