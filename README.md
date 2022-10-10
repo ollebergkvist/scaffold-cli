@@ -33,3 +33,9 @@ scaffold-cli <option>
   -ts, --typescript   installs typescript, adds tsconfig.json
   -h, --help          display help for command
   ```
+
+## TODO
+
+* Feature: Make CLI interactive
+* Refactor: lib functions (DRY solution)
+* Bug: SyntaxError: Cannot use import statement outside a module () - Files outside /src dir
