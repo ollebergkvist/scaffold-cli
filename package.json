@@ -1,13 +1,13 @@
 {
-  "name": "@ollebergkvist/scaffold-cli",
+  "name": "@ollebergkvist/scaffolder",
   "description": "A CLI to scaffold common tools and configs",
   "author": "Olle Bergkvist",
   "version": "1.0.0",
-  "main": "./dist/index.js",
+  "main": "dist/bin/index.js",
   "license": "MIT",
   "type": "module",
   "bin": {
-    "scaffold-cli": "./dist/index.js"
+    "scaffold-cli": "dist/bin/index.js"
   },
   "scripts": {
     "dev": "nodemon --watch src ./src/bin/index.ts",
@@ -66,5 +66,9 @@
     "husky",
     "rimraf",
     "commitlint"
-  ]
+  ],
+  "repository": {
+    "url": "https://github.com/ollebergkvist/scaffold-cli",
+    "type": "git"
+  }
 }
