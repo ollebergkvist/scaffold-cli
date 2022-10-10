@@ -11,7 +11,7 @@ module.exports = {
   overrides: [
     {
       files: ['*.ts'],
-      plugins: ['@typescript-eslint'],
+      plugins: ['@typescript-eslint', 'import'],
 
       parser: '@typescript-eslint/parser',
       parserOptions: {
@@ -24,6 +24,8 @@ module.exports = {
         'airbnb-base',
         'airbnb-typescript/base',
 
+        'plugin:import/recommended',
+        'plugin:import/typescript',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'plugin:@typescript-eslint/strict',
