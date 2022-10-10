@@ -1,12 +1,13 @@
 {
-  "name": "scaffold-cli",
+  "name": "@ollebergkvist/scaffold-cli",
+  "description": "A CLI to scaffold common tools and configs",
   "author": "Olle Bergkvist",
   "version": "1.0.0",
-  "main": "./src/bin/index.js",
+  "main": "./dist/index.js",
   "license": "MIT",
   "type": "module",
   "bin": {
-    "scaffold-cli": "./src/bin/index.js"
+    "scaffold-cli": "./dist/index.js"
   },
   "scripts": {
     "dev": "nodemon --watch src ./src/bin/index.ts",
@@ -23,6 +24,7 @@
     }
   },
   "dependencies": {
+    "chalk": "^5.1.0",
     "colors": "^1.4.0",
     "commander": "^9.4.1",
     "figlet": "^1.5.2",
@@ -37,7 +39,7 @@
     "@types/node": "^18.8.2",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
-    "chalk": "^5.1.0",
+    "cypress": "^10.9.0",
     "eslint": "^8.24.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -46,11 +48,23 @@
     "eslint-plugin-jsonc": "^2.4.0",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.0",
+    "jest": "^29.1.2",
     "lint-staged": "^13.0.3",
     "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
-  }
+  },
+  "keywords": [
+    "cli",
+    "nodejs",
+    "typescript",
+    "prettier",
+    "eslint",
+    "lint-staged",
+    "husky",
+    "rimraf",
+    "commitlint"
+  ]
 }
