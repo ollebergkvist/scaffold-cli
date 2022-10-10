@@ -19,7 +19,7 @@ scaffold-cli <option>
 
 ```
   -V, --version       output the version number
-  -a, --astro         installs common tools, typescript and eslint astro specific config
+  -a, --astro         installs common tools, typescript and eslint astro specific configs
   -n, --next          installs common tools, typescript and eslint next specific configs
   -cl, --commitlint   installs commitlint, adds husky commit-msg hook
   -cy, --cypress      installs cypress, adds .cypress.cjs
