@@ -3,8 +3,9 @@
 // libs
 import chalk from 'chalk'
 import util from 'util'
+import npmAddScript from 'npm-add-script'
 import child_process from 'child_process'
-import { recursiveCopy } from '../helpers/copy.js'
+import { recursiveCopy } from 'helpers'
 
 const exec = util.promisify(child_process.exec)
 
@@ -48,16 +49,24 @@ export const next = async () => {
     await exec(`yarn add -D ${dependencies.join(' ')} && npx init husky`)
 
     console.info(chalk.magenta('- Copying shared configs'))
-    await recursiveCopy('../configs/shared', '.')
+    await recursiveCopy('@configs/shared', '.')
 
     console.info(chalk.magenta('- Copying next typescript config'))
-    await recursiveCopy('../configs/typescript/next', '.')
+    await recursiveCopy('@configs/typescript/next', '.')
 
     console.info(chalk.magenta('- Copying next eslint main config'))
-    await recursiveCopy('../configs/eslint/next', '.')
+    await recursiveCopy('@configs/eslint/next', '.')
 
     console.info(chalk.magenta('- Copying next eslint children configs \n'))
-    await recursiveCopy('../configs/eslint/plugins', '.')
+    await recursiveCopy('@configs/eslint/plugins', '.')
+
+    console.info(chalk.magenta(`- Appending scripts to package.json' '\n`))
+    npmAddScript({
+      key: 'generate-barrels',
+      value: 'barrelsby --delete --directory src --location all --noHeader',
+      force: true,
+    })
+    npmAddScript({ key: 'predev', value: 'yarn generate-barrels', force: true })
 
     console.info(chalk.green('Successfully installed and configured default tools! \n'))
   } catch (error) {

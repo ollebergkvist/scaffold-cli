@@ -3,8 +3,9 @@
 // libs
 import chalk from 'chalk'
 import util from 'util'
+import npmAddScript from 'npm-add-script'
 import child_process from 'child_process'
-import { recursiveCopy } from '../helpers/copy.js'
+import { recursiveCopy } from 'helpers'
 
 const exec = util.promisify(child_process.exec)
 
@@ -15,6 +16,7 @@ const dependencies = [
   '@types/react',
   '@typescript-eslint/eslint-plugin',
   '@typescript-eslint/parser',
+  'barrelsby',
   'cypress',
   'daisyui',
   'jest',
@@ -53,16 +55,24 @@ export const astro = async () => {
     )
 
     console.info(chalk.magenta('- Copying shared configs'))
-    await recursiveCopy('../configs/shared', '.')
+    await recursiveCopy('@configs/shared', '.')
 
     console.info(chalk.magenta('- Copying astro typescript config'))
-    await recursiveCopy('../configs/typescript/astro', '.')
+    await recursiveCopy('@configs/typescript/astro', '.')
 
     console.info(chalk.magenta('- Copying astro eslint main config'))
-    await recursiveCopy('../configs/eslint/astro', '.')
+    await recursiveCopy('@configs/eslint/astro', '.')
 
     console.info(chalk.magenta('- Copying astro eslint children configs \n'))
-    await recursiveCopy('../configs/eslint/plugins', './configs')
+    await recursiveCopy('@configs/eslint/plugins', './configs')
+
+    console.info(chalk.magenta(`- Appending scripts to package.json' '\n`))
+    npmAddScript({
+      key: 'generate-barrels',
+      value: 'barrelsby --delete --directory src --location all --noHeader',
+      force: true,
+    })
+    npmAddScript({ key: 'predev', value: 'yarn generate-barrels', force: true })
 
     console.info(chalk.green('Successfully installed and configured default tools! \n'))
   } catch (error) {
