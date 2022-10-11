@@ -1,27 +1,31 @@
 {
+  "display": "Node 16",
   "compilerOptions": {
-    "lib": ["ES2022", "DOM"],
-    "module": "ES2022",
-    "moduleResolution": "Node",
-    "target": "ES2022",
+    "lib": ["es2021"],
+    "module": "CommonJS",
+    "target": "es2021",
+
+    "strict": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "Node",
+
     "rootDir": "src",
     "outDir": "dist",
-    "resolveJsonModule": true,
-    "removeComments": true,
-    "allowJs": true,
-    "skipLibCheck": true,
-    "isolatedModules": true,
-    "strict": true,
-    "incremental": true,
-    "strictNullChecks": true,
-    "importsNotUsedAsValues": "error",
-    "noImplicitAny": true,
-    "forceConsistentCasingInFileNames": true
+    // "removeComments": true,
+    // // "allowJs": true,
+    // "strictNullChecks": true,
+    // "importsNotUsedAsValues": "error",
+    // "noImplicitAny": true,
+
+    "baseUrl": "src",
+    "paths": { "@configs/*": ["../configs"], "@lib/*": ["lib"] }
   },
   "include": ["src/**/*.ts", "types.d.ts"],
   "exclude": ["node_modules", "configs"],
   "ts-node": {
+    "require": ["tsconfig-paths/register"],
     "esm": true,
     "experimentalSpecifierResolution": "node"
   }
