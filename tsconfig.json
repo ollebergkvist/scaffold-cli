@@ -13,11 +13,11 @@
 
     "rootDir": "src",
     "outDir": "dist",
-    // "removeComments": true,
-    // // "allowJs": true,
-    // "strictNullChecks": true,
-    // "importsNotUsedAsValues": "error",
-    // "noImplicitAny": true,
+    "removeComments": true,
+    "allowJs": true,
+    "strictNullChecks": true,
+    "importsNotUsedAsValues": "error",
+    "noImplicitAny": true,
 
     "baseUrl": "src",
     "paths": { "@configs/*": ["../configs"], "@lib/*": ["lib"] }
