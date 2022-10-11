@@ -25,7 +25,7 @@
     "clean": "rimraf dist",
     "prepublish": "yarn build",
     "publish": "npm publish --access=public",
-    "generate-barrels": "barrelsby --delete --directory src --location all"
+    "generate-barrels": "barrelsby --delete --noHeader --directory src --location all"
   },
   "husky": {
     "hooks": {
