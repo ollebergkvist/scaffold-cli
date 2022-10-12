@@ -11,12 +11,13 @@ A CLI that scaffolds common tools and configs
 
 ## Installation
 
+Use your favorite package manager. Mine is yarn.
+
 ```
 yarn global add @ollebergkvist/scaffolder
-npx @ollebergkvist/scaffolder
 ```
 
-## How to use
+## Usage
 
 ```
 scaffold-cli <option>
@@ -28,6 +29,7 @@ scaffold-cli <option>
   -V, --version       output the version number
   -a, --astro         installs common tools, typescript and eslint astro specific configs
   -n, --next          installs common tools, typescript and eslint next specific configs
+  -bb, --barrelsby    installs barrelsby
   -cl, --commitlint   installs commitlint, adds husky commit-msg hook
   -cy, --cypress      installs cypress, adds .cypress.cjs
   -es, --eslint       installs eslint, adds .eslintrc.cjs
