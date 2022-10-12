@@ -5,7 +5,8 @@ import chalk from 'chalk'
 import util from 'util'
 import npmAddScript from 'npm-add-script'
 import child_process from 'child_process'
-import { recursiveCopy } from 'helpers'
+import { recursiveCopy } from '../helpers/copy.js'
+import resolvePath from '../helpers/path.js'
 
 const exec = util.promisify(child_process.exec)
 
@@ -49,22 +50,19 @@ export const astro = async () => {
 
   try {
     console.info(chalk.magenta('- Installing tools'))
-    await exec(
-      `yarn add -D ${dependencies.join(' ')}`,
-      // && npx init husky && yarn
-    )
+    await exec(`yarn add -D ${dependencies.join(' ')} && npx init husky`)
 
     console.info(chalk.magenta('- Copying shared configs'))
-    await recursiveCopy('@configs/shared', '.')
+    await recursiveCopy(resolvePath('shared'), '.')
 
     console.info(chalk.magenta('- Copying astro typescript config'))
-    await recursiveCopy('@configs/typescript/astro', '.')
+    await recursiveCopy(resolvePath('typescript/astro'), '.')
 
     console.info(chalk.magenta('- Copying astro eslint main config'))
-    await recursiveCopy('@configs/eslint/astro', '.')
+    await recursiveCopy(resolvePath('eslint/astro'), '.')
 
     console.info(chalk.magenta('- Copying astro eslint children configs \n'))
-    await recursiveCopy('@configs/eslint/plugins', './configs')
+    await recursiveCopy(resolvePath('eslint/plugins'), './configs')
 
     console.info(chalk.magenta(`- Appending scripts to package.json' '\n`))
     npmAddScript({

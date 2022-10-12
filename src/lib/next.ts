@@ -5,7 +5,8 @@ import chalk from 'chalk'
 import util from 'util'
 import npmAddScript from 'npm-add-script'
 import child_process from 'child_process'
-import { recursiveCopy } from 'helpers'
+import { recursiveCopy } from '../helpers/copy.js'
+import resolvePath from '../helpers/path.js'
 
 const exec = util.promisify(child_process.exec)
 
@@ -49,16 +50,16 @@ export const next = async () => {
     await exec(`yarn add -D ${dependencies.join(' ')} && npx init husky`)
 
     console.info(chalk.magenta('- Copying shared configs'))
-    await recursiveCopy('@configs/shared', '.')
+    await recursiveCopy(resolvePath('shared'), '.')
 
     console.info(chalk.magenta('- Copying next typescript config'))
-    await recursiveCopy('@configs/typescript/next', '.')
+    await recursiveCopy(resolvePath('typescript/next'), '.')
 
     console.info(chalk.magenta('- Copying next eslint main config'))
-    await recursiveCopy('@configs/eslint/next', '.')
+    await recursiveCopy(resolvePath('eslint/next'), '.')
 
     console.info(chalk.magenta('- Copying next eslint children configs \n'))
-    await recursiveCopy('@configs/eslint/plugins', '.')
+    await recursiveCopy(resolvePath('eslint/plugins'), '.')
 
     console.info(chalk.magenta(`- Appending scripts to package.json' '\n`))
     npmAddScript({

@@ -4,7 +4,8 @@
 import chalk from 'chalk'
 import util from 'util'
 import child_process from 'child_process'
-import { recursiveCopy } from 'helpers'
+import { recursiveCopy } from '../helpers/copy.js'
+import resolvePath from '../helpers/path.js'
 
 const exec = util.promisify(child_process.exec)
 
@@ -15,7 +16,7 @@ export const commitLint = async () => {
     await exec('yarn add -D @commitlint/{config-conventional,cli}')
 
     console.info(chalk.magenta(`- Copying commitlint.config.cjs to ./`))
-    await recursiveCopy('@configs/shared/commitlint.config.cjs', 'commitlint.config.cjs')
+    await recursiveCopy(resolvePath('shared/commitlint.config.cjs'), 'commitlint.config.cjs')
 
     console.info(chalk.magenta(`- Add commit-msg husky hook \n`))
     await exec('npx husky add .husky/commit-msg  "yarn commitlint --edit "')

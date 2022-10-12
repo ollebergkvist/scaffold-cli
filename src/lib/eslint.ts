@@ -5,7 +5,8 @@ import chalk from 'chalk'
 import util from 'util'
 import npmAddScript from 'npm-add-script'
 import child_process from 'child_process'
-import { recursiveCopy } from 'helpers'
+import { recursiveCopy } from '../helpers/copy.js'
+import resolvePath from '../helpers/path.js'
 
 const exec = util.promisify(child_process.exec)
 
@@ -35,7 +36,7 @@ export const eslint = async () => {
     await exec(`yarn add -D ${dependencies.join(' ')}`)
 
     console.info(chalk.magenta(`- Copying .eslintrc.cjs to ./ \n`))
-    await recursiveCopy('@configs/eslint/next/.eslintrc.cjs', '.eslintrc.cjs')
+    await recursiveCopy(resolvePath('eslint/next/.eslintrc.cjs'), '.eslintrc.cjs')
 
     console.info(chalk.magenta(`- Appending "prepare" script to package.json' '\n`))
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
