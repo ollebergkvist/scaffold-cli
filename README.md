@@ -47,4 +47,3 @@ scaffold-cli <option>
 
 * Feature: Make CLI interactive
 * Refactor: lib functions (DRY solution)
-* Bug: SyntaxError: Cannot use import statement outside a module () - Files outside /src dir
