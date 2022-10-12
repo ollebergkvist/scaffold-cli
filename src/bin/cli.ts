@@ -6,23 +6,22 @@ import chalk from 'chalk'
 import figlet from 'figlet'
 
 // initializers
-import {
-  astro,
-  commitLint,
-  cypress,
-  eslint,
-  husky,
-  jest,
-  lintStaged,
-  next,
-  prettier,
-  rimraf,
-  tailwindcss,
-  typescript,
-} from 'lib'
+import { astro } from '../lib/astro.js'
+import barrelsby from '../lib/barrelsby.js'
+import { commitLint } from '../lib/commitlint.js'
+import { cypress } from '../lib/cypress.js'
+import { eslint } from '../lib/eslint.js'
+import { husky } from '../lib/husky.js'
+import { jest } from '../lib/jest.js'
+import { lintStaged } from '../lib/lint-staged.js'
+import { next } from '../lib/next.js'
+import { prettier } from '../lib/prettier.js'
+import { rimraf } from '../lib/rimraf.js'
+import { tailwindcss } from '../lib/tailwindcss.js'
+import { typescript } from '../lib/typescript.js'
 
 // helpers
-import { Options } from 'helpers'
+import { Options } from '../helpers/options.js'
 
 const program = new Command()
 
@@ -35,6 +34,7 @@ program
   .usage('[options] <file>')
   .option('-a, --astro', Options.astro, astro)
   .option('-n, --next', Options.next, next)
+  .option('-bb, --barrelsby', Options.next, barrelsby)
   .option('-cl, --commitlint', Options.commitLint, commitLint)
   .option('-cy, --cypress', Options.cypress, cypress)
   .option('-es, --eslint', Options.eslint, eslint)

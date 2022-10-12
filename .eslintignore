@@ -1,2 +1,5 @@
-jest.config.ts
-cypress.config.ts
+node_modules
+configs
+.vscode
+.husky
+dist
