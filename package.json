@@ -1,12 +1,12 @@
 {
-  "name": "@ollebergkvist/testtest",
+  "name": "@ollebergkvist/scaffolder",
   "description": "A CLI to scaffold common tools and configs",
   "author": {
     "name": "Olle Bergkvist",
     "email": "hello@ollebergkvist.com",
     "url": "https://github.com/ollebergkvist"
   },
-  "version": "1.0.6",
+  "version": "1.0.1",
   "main": "dist/bin/cli.js",
   "license": "MIT",
   "type": "module",
@@ -18,6 +18,7 @@
     "dev": "nodemon --watch src ./src/bin/index.ts",
     "prebuild": "yarn clean",
     "build": "tsc -p .",
+    "bundle": "rollup --config",
     "prepare": "husky install",
     "format": "eslint --write \"src/**/*.ts\"",
     "ts-node": "ts-node-esm",
@@ -25,7 +26,7 @@
     "clean": "rimraf dist",
     "prepublish": "yarn build",
     "publish": "npm publish --access=public",
-    "generate-barrels": "barrelsby --delete --noHeader --directory src --location all"
+    "generate-barrels": "barrelsby --delete --no --directory src --location all"
   },
   "husky": {
     "hooks": {
@@ -44,12 +45,15 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@rollup/plugin-commonjs": "^23.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^9.0.1",
     "@types/figlet": "^1.5.5",
     "@types/node": "^18.8.2",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
     "barrelsby": "^2.5.1",
-    "cypress": "^10.9.0",
+    "cypress": "^10.10.0",
     "eslint": "^8.24.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -64,6 +68,8 @@
     "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
+    "rollup": "^3.0.0",
+    "rollup-plugin-node-externals": "^5.0.0",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.0",
     "typescript": "^4.8.4"
