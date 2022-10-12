@@ -5,7 +5,7 @@ import chalk from 'chalk'
 import util from 'util'
 import child_process from 'child_process'
 import { recursiveCopy } from '../helpers/copy.js'
-import resolvePath from '../helpers/path.js'
+import { resolvePath } from '../helpers/path.js'
 
 const exec = util.promisify(child_process.exec)
 
