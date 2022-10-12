@@ -1,4 +1,4 @@
-import micromatch from 'micromatch'
+const micromatch = require('micromatch')
 
 module.exports = {
   '*.{js,jsx,ts,tsx,astro}': (files) => {
