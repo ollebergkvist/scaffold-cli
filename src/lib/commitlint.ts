@@ -19,7 +19,7 @@ export const commitLint = async () => {
     await recursiveCopy(resolvePath('shared/commitlint.config.cjs'), 'commitlint.config.cjs')
 
     console.info(chalk.magenta(`- Add commit-msg husky hook \n`))
-    await exec('npx husky add .husky/commit-msg  "yarn commitlint --edit "')
+    await exec('npx husky add .husky/commit-msg  "yarn commitlint --edit"')
 
     console.info(chalk.green(`Successfully installed and configured commitlint! \n`))
   } catch (error) {
