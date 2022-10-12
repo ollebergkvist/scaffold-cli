@@ -7,7 +7,7 @@ import figlet from 'figlet'
 
 // initializers
 import { astro } from '../lib/astro.js'
-import barrelsby from '../lib/barrelsby.js'
+import { barrelsby } from '../lib/barrelsby.js'
 import { commitLint } from '../lib/commitlint.js'
 import { cypress } from '../lib/cypress.js'
 import { eslint } from '../lib/eslint.js'
@@ -34,7 +34,7 @@ program
   .usage('[options] <file>')
   .option('-a, --astro', Options.astro, astro)
   .option('-n, --next', Options.next, next)
-  .option('-bb, --barrelsby', Options.next, barrelsby)
+  .option('-bb, --barrelsby', Options.barrelsby, barrelsby)
   .option('-cl, --commitlint', Options.commitLint, commitLint)
   .option('-cy, --cypress', Options.cypress, cypress)
   .option('-es, --eslint', Options.eslint, eslint)
