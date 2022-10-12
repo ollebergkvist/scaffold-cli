@@ -6,7 +6,7 @@
     "email": "hello@ollebergkvist.com",
     "url": "https://github.com/ollebergkvist"
   },
-  "version": "1.0.1",
+  "version": "1.0.3",
   "main": "dist/bin/cli.js",
   "license": "MIT",
   "type": "module",
@@ -24,7 +24,7 @@
     "ts-node": "ts-node-esm",
     "prettier:check": "yarn prettier --check .",
     "clean": "rimraf dist",
-    "prepublish": "yarn build",
+    "prepublish": "yarn build && npm login",
     "publish": "npm publish --access=public",
     "generate-barrels": "barrelsby --delete --no --directory src --location all"
   },
@@ -83,7 +83,8 @@
     "lint-staged",
     "husky",
     "rimraf",
-    "commitlint"
+    "commitlint",
+    "barrelsby"
   ],
   "repository": {
     "url": "https://github.com/ollebergkvist/scaffold-cli",
