@@ -29,7 +29,7 @@ const program = new Command()
 console.info(chalk.green(figlet.textSync('scaffold-cli', { horizontalLayout: 'full' })))
 
 program
-  .version('1.0.2')
+  .version('1.0.4')
   .description('A CLI that scaffolds common tools and configs')
   .usage('[options] <file>')
   .option('-a, --astro', Options.astro, astro)
