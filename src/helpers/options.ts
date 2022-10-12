@@ -1,5 +1,6 @@
 export const Options = {
   astro: 'installs common tools, typescript and eslint astro specific configs',
+  barrelsby: 'installs barrelsby',
   commitLint: 'installs commitlint, adds husky commit-msg hook',
   cypress: 'installs cypress, adds .cypress.cjs',
   eslint: 'installs eslint, adds .eslintrc.cjs',
