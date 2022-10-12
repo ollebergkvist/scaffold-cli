@@ -19,6 +19,9 @@ export const lintStaged = async () => {
     console.info(chalk.magenta(`- Copying .lintstagedrc.cjs to ./ \n`))
     await recursiveCopy(resolvePath('shared/.lintstagedrc.cjs'), '.lintstagedrc.cjs')
 
+    console.info(chalk.magenta(`- Add pre-commit husky hook \n`))
+    await exec('npx husky add .husky/pre-commit "yarn lint-staged"')
+
     console.info(chalk.green(`Successfully installed and configured lint-staged! \n`))
   } catch (error) {
     console.info(chalk.red(error))
